@@ -1,0 +1,32 @@
+def win(current_game):
+	# Poziom
+	for row in game:
+		print(row)
+		if row.count(row[0]) == len(row) and row[0] != 0:
+			print(f"Player {row[0]} wins horizontally (_)!")
+
+	# Na krzyż
+	diagonals = []
+	for col, row in enumerate(reversed(range(len(game)))):
+		diagonals.append(game[row][col])
+	if diagonals.count(diagonals[0]) == len(diagonals) and diagonals[0] != 0:
+			print(f"Player {diagonals[0]} wins diagonally (/)!")
+
+	#Na krzyż
+	diagonals = []
+	for ix in range(len(game)):
+		diagonals.append(game[ix][ix])
+	if diagonals.count(diagonals[0]) == len(diagonals) and diagonals[0] != 0:
+			print(f"Player {diagonals[0]} wins diagonally (\\)!")
+
+	# Pion
+	for col in range(len(game)):
+		check = []
+
+		for row in game:
+			check.append(row[col])
+
+		if check.count(check[0]) == len(check) and check[0] != 0:
+			print(f"Player {check[0]} wins vertically (|)!")
+
+
